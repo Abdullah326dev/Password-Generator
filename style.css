@@ -133,3 +133,9 @@ input#userInput:focus{
     border: none;
     background: #0B7A55;
 }
+
+.user-input p {
+    font-size: 13px;
+    width: 50%;
+    padding-bottom: 1vw;
+}

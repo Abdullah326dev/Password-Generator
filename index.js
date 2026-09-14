@@ -10,41 +10,43 @@ let showWarrning = false
 let pass = []
 let passtwo = []
 
-function warningShower(){
-    if (showWarrning === true){
+function warningShower() {
+    if (showWarrning === true) {
         warrning.style.display = "block"
-    } else{
+    } else {
         warrning.style.display = "none"
     }
 }
 
-function passwordLengthWarning(){
-    let passwordLength  = parseInt(userInput.value, 10)
-    
-    if (passwordLength <= 0){
+function passwordLengthWarning() {
+    let passwordLength = parseInt(userInput.value, 10)
+
+    if (passwordLength <= 0) {
         warrning.textContent = "Really bro you will add 0??"
         showWarrning = true
         warningShower()
         return
-    }else if(passwordLength >=16){
+    } else if (passwordLength > 16) {
         warrning.textContent = "Bigger is Better? not here!"
         showWarrning = true
         warningShower()
         return
-    }else{
+    } 
+    else {
         showWarrning = false
         warningShower()
     }
 }
 
-function passwordGen(){
+function passwordGen() {
+    passwordLengthWarning()
+    if (showWarrning === true) {
+        return
+    }
     pass.length = 0
     passtwo.length = 0
 
-    let passwordLength  = parseInt(userInput.value, 10)
-
-    passwordLengthWarning()
-
+    let passwordLength = parseInt(userInput.value, 10)
 
     for (let i = 0; i < passwordLength; i++) {
 
