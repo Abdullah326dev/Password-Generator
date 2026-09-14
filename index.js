@@ -4,15 +4,49 @@ const characters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", 
 let passGen = document.getElementById("passGen")
 let PasswordEl = document.getElementById("password")
 let PasswordEltwo = document.getElementById("password-two")
+let userInput = document.getElementById("userInput")
+let warrning = document.getElementById("warrning")
+let showWarrning = false
 let pass = []
 let passtwo = []
 
-passGen.addEventListener("click", function () {
+function warningShower(){
+    if (showWarrning === true){
+        warrning.style.display = "block"
+    } else{
+        warrning.style.display = "none"
+    }
+}
 
+function passwordLengthWarning(){
+    let passwordLength  = parseInt(userInput.value, 10)
+    
+    if (passwordLength <= 0){
+        warrning.textContent = "Really bro you will add 0??"
+        showWarrning = true
+        warningShower()
+        return
+    }else if(passwordLength >=16){
+        warrning.textContent = "Bigger is Better? not here!"
+        showWarrning = true
+        warningShower()
+        return
+    }else{
+        showWarrning = false
+        warningShower()
+    }
+}
+
+function passwordGen(){
     pass.length = 0
     passtwo.length = 0
 
-    for (let i = 0; i < 15; i++) {
+    let passwordLength  = parseInt(userInput.value, 10)
+
+    passwordLengthWarning()
+
+
+    for (let i = 0; i < passwordLength; i++) {
 
         let randomIndex = Math.floor(Math.random() * characters.length)
         let randomIndexTwo = Math.floor(Math.random() * characters.length)
@@ -27,4 +61,8 @@ passGen.addEventListener("click", function () {
 
     PasswordEl.textContent = pass.join("")
     PasswordEltwo.textContent = passtwo.join("")
+}
+
+passGen.addEventListener("click", function () {
+    passwordGen()
 })

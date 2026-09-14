@@ -35,7 +35,7 @@ h1, h2, h3, h4, h5, h6, p{
     display: block;
 }
 
-.header-text p{
+.header-text > p{
     font-size: 1.14vw;
     line-height: 1;
     padding-bottom: 2vw;
@@ -60,6 +60,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: fit-content;
 }
 button:hover {
     background: #0E9F6E;
@@ -91,4 +92,44 @@ button:active {
     align-items: center;
     justify-content: center;
     color: #55F991;
+}
+
+.btn {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 1vw;
+}
+
+
+.warrning-box p {
+    display: none;
+}
+
+.warrning-box p {
+    color: red;
+    font-size: 15px;
+    font-weight: 100;
+}
+
+input#userInput {
+    background: #10B981;
+    border: none;
+    color: #fff;
+    font-family: 'Karla';
+    padding: 10px 20px;
+    margin: 0;
+    border-radius: 5px;
+    font-size: 0.8333vw;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    text-align: center;
+}
+
+input#userInput:focus{
+    outline: none;
+    border: none;
+    background: #0B7A55;
 }
