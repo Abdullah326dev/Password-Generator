@@ -27,7 +27,9 @@ function ToggleHander(){
     }
 }
 
-
+function CopyClipboard() {
+    navigator.clipboard.writeText(PasswordEl.textContent)
+}
 
 function warningShower() {
     if (showWarrning === true) {
@@ -89,6 +91,16 @@ function passwordGen() {
 passGen.addEventListener("click", function () {
     passwordGen()
 })
-toggleEl.addEventListener("change", function(){
-    ToggleHander()
+// toggleEl.addEventListener("change", function(){
+//     ToggleHander()
+// })
+
+PasswordEl.addEventListener("click", function () {
+    CopyClipboard()
+    PasswordEl.textContent = "Copied!"
+    console.log("copied")
+})
+PasswordEltwo.addEventListener("click", function () {
+    CopyClipboard()
+    PasswordEltwo.textContent = "Copied!"
 })
